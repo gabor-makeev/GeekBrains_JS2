@@ -70,6 +70,7 @@ body {
 .goods-list {
   display: flex;
   justify-content: space-evenly;
+  padding: 50px 0;
 }
 
 .goods-item {
@@ -80,7 +81,6 @@ body {
   border-radius: 10px;
   color: $defaultBeige;
   transition: 0.3s;
-  cursor: pointer;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -91,12 +91,37 @@ body {
     transition: 0.3s;
   }
 
+  & button {
+    background-color: $darkGreen;
+    color: $defaultBeige;
+    width: 50%;
+    height: 25px;
+    margin-top: 5px;
+    border-radius: 25px;
+    border: none;
+    transition: 0.3s;
+    box-shadow: 0 0 5px 2px #221;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 3px 1px #221;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
   &:hover {
     transform: scale(1.025);
     background-color: $darkGreen;
 
     & img {
       opacity: 0.5;
+    }
+
+    & button {
+      background-color: $defaultGreen;
     }
   }
 
