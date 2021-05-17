@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap');
+
+$defaultGreen: #8e9775;
+$darkGreen: #69715a;
+$defaultBeige: #faf2da;
+$defaultPink: #e28f83;
+$wrapper: calc(50% - 1100px / 2);
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 50px $wrapper;
+  background-color: $defaultBeige;
+  display: flex;
+  justify-content: space-between;
+
+  &-logo {
+    font-size: 25px;
+    text-decoration: none;
+    color: $defaultGreen;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+
+    &:hover {
+      color: #a7ad93;
+    }
+  }
+}
+
+.cart-button {
+  padding: 10px 30px;
+  border: 1px solid #cec795;
+  border-radius: 10px;
+  background-color: $defaultGreen;
+  color: $defaultBeige;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: $defaultBeige;
+    border-color: $defaultGreen;
+    color: $defaultGreen;
+  }
+
+  &:active {
+    background-color: $defaultGreen;
+    color: $defaultBeige;
+  }
+}
+
+.main {
+  padding: 30px $wrapper;
+  background-color: $defaultGreen;
+}
+
+.goods-list {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px 0;
+}
+
+.goods-item {
+  width: (1/5) * 100%;
+  height: 275px;
+  padding: 160px 10px 25px 10px;
+  border: 1px solid $defaultBeige;
+  border-radius: 10px;
+  color: $defaultBeige;
+  transition: 0.3s;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  & img {
+    transition: 0.3s;
+  }
+
+  & button {
+    background-color: $darkGreen;
+    color: $defaultBeige;
+    width: 50%;
+    height: 25px;
+    margin-top: 5px;
+    border-radius: 25px;
+    border: none;
+    transition: 0.3s;
+    box-shadow: 0 0 5px 2px #221;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 3px 1px #221;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.025);
+    background-color: $darkGreen;
+
+    & img {
+      opacity: 0.5;
+    }
+
+    & button {
+      background-color: $defaultGreen;
+    }
+  }
+
+  &-empty {
+    width: 75%;
+    position: absolute;
+    top: 10px;
+  }
+}
+
+.footer {
+  padding: 40px $wrapper;
+  background-color: $defaultPink;
+}
+
