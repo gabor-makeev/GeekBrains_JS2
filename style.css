@@ -56,13 +56,14 @@ body {
   background-color: #8e9775;
 }
 
-.goods-list {
+.goods-list,
+.cart-list {
   display: flex;
   justify-content: space-evenly;
   padding: 50px 0;
 }
-
-.goods-item {
+.goods-list .goods-item,
+.cart-list .goods-item {
   width: 20%;
   height: 275px;
   padding: 160px 10px 25px 10px;
@@ -70,16 +71,19 @@ body {
   border-radius: 10px;
   color: #faf2da;
   transition: 0.3s;
+  font-size: 13px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
   position: relative;
 }
-.goods-item img {
+.goods-list .goods-item img,
+.cart-list .goods-item img {
   transition: 0.3s;
 }
-.goods-item button {
+.goods-list .goods-item button,
+.cart-list .goods-item button {
   background-color: #69715a;
   color: #faf2da;
   width: 50%;
@@ -91,23 +95,29 @@ body {
   box-shadow: 0 0 5px 2px #221;
   cursor: pointer;
 }
-.goods-item button:hover {
+.goods-list .goods-item button:hover,
+.cart-list .goods-item button:hover {
   box-shadow: 0 0 3px 1px #221;
 }
-.goods-item button:active {
+.goods-list .goods-item button:active,
+.cart-list .goods-item button:active {
   box-shadow: none;
 }
-.goods-item:hover {
+.goods-list .goods-item:hover,
+.cart-list .goods-item:hover {
   transform: scale(1.025);
   background-color: #69715a;
 }
-.goods-item:hover img {
+.goods-list .goods-item:hover img,
+.cart-list .goods-item:hover img {
   opacity: 0.5;
 }
-.goods-item:hover button {
+.goods-list .goods-item:hover button,
+.cart-list .goods-item:hover button {
   background-color: #8e9775;
 }
-.goods-item-empty {
+.goods-list .goods-item-empty,
+.cart-list .goods-item-empty {
   width: 75%;
   position: absolute;
   top: 10px;
