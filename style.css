@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 50px calc(50% - 1100px / 2);
+  background-color: #faf2da;
+  display: flex;
+  justify-content: space-between;
+}
+.header-logo {
+  font-size: 25px;
+  text-decoration: none;
+  color: #8e9775;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+.header-logo:hover {
+  color: #a7ad93;
+}
+
+.cart-button {
+  padding: 10px 30px;
+  border: 1px solid #cec795;
+  border-radius: 10px;
+  background-color: #8e9775;
+  color: #faf2da;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cart-button:hover {
+  transform: scale(1.05);
+  background-color: #faf2da;
+  border-color: #8e9775;
+  color: #8e9775;
+}
+.cart-button:active {
+  background-color: #8e9775;
+  color: #faf2da;
+}
+
+.main {
+  padding: 30px calc(50% - 1100px / 2);
+  background-color: #8e9775;
+}
+
+.goods-list,
+.cart-list {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px 0;
+}
+.goods-list .goods-item,
+.cart-list .goods-item {
+  width: 20%;
+  height: 275px;
+  padding: 160px 10px 25px 10px;
+  border: 1px solid #faf2da;
+  border-radius: 10px;
+  color: #faf2da;
+  transition: 0.3s;
+  font-size: 13px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.goods-list .goods-item img,
+.cart-list .goods-item img {
+  transition: 0.3s;
+}
+.goods-list .goods-item button,
+.cart-list .goods-item button {
+  background-color: #69715a;
+  color: #faf2da;
+  width: 50%;
+  height: 25px;
+  margin-top: 5px;
+  border-radius: 25px;
+  border: none;
+  transition: 0.3s;
+  box-shadow: 0 0 5px 2px #221;
+  cursor: pointer;
+}
+.goods-list .goods-item button:hover,
+.cart-list .goods-item button:hover {
+  box-shadow: 0 0 3px 1px #221;
+}
+.goods-list .goods-item button:active,
+.cart-list .goods-item button:active {
+  box-shadow: none;
+}
+.goods-list .goods-item:hover,
+.cart-list .goods-item:hover {
+  transform: scale(1.025);
+  background-color: #69715a;
+}
+.goods-list .goods-item:hover img,
+.cart-list .goods-item:hover img {
+  opacity: 0.5;
+}
+.goods-list .goods-item:hover button,
+.cart-list .goods-item:hover button {
+  background-color: #8e9775;
+}
+.goods-list .goods-item-empty,
+.cart-list .goods-item-empty {
+  width: 75%;
+  position: absolute;
+  top: 10px;
+}
+
+.footer {
+  padding: 40px calc(50% - 1100px / 2);
+  background-color: #e28f83;
+}
+
+/*# sourceMappingURL=style.css.map */
