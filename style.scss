@@ -24,6 +24,7 @@ body {
   background-color: $defaultBeige;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   &-logo {
     font-size: 25px;
@@ -35,6 +36,46 @@ body {
 
     &:hover {
       color: #a7ad93;
+    }
+  }
+
+  .search {
+    display: flex;
+    gap: 15px;
+
+    &-field {
+      background-color: $defaultBeige;
+      border-color: $defaultGreen;
+      color: $defaultGreen;
+      border-radius: 25px;
+      padding: 0 15px 0 15px;
+      width: 200px;
+      height: 40px;
+      outline: none;
+    }
+
+    &-button {
+      outline: none;
+      border: 1px solid $defaultGreen;
+      border-radius: 25px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      background-color: $darkGreen;
+      color: $defaultBeige;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+        background-color: $defaultBeige;
+        border-color: $defaultGreen;
+        color: $defaultGreen;
+      }
+
+      &:active {
+        background-color: $defaultGreen;
+        color: $defaultBeige;
+      }
     }
   }
 }

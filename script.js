@@ -1,4 +1,3 @@
-// Решение 1-го задания
 const makeGETRequest = (url) => {
   return new Promise((resolve, reject) => {
     let xhr;
@@ -45,15 +44,16 @@ class GoodsItem {
 class GoodsList {
   constructor() {
     this.goods = [];
+    this.filteredGoods = [];
     this.API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
   }
 
-  // Решение 3-го задания. Часть 1
   fetchGoods() {
     return new Promise(resolve => {
       makeGETRequest(`${this.API_URL}/catalogData.json`)
           .then((goods) => {
             this.goods = JSON.parse(goods);
+            this.filteredGoods = JSON.parse(goods);
             resolve();
           }).catch((error) => {
             console.log(`Error: ${error}`);
@@ -61,7 +61,12 @@ class GoodsList {
     })
   }
 
-  // Проверка нажатия на кнопку покупки в каталоге
+  filterGoods(value) {
+    const regExp = new RegExp(value, 'i');
+    this.filteredGoods = this.goods.filter(good => regExp.test(good.product_name));
+    this.render();
+  }
+
   purchaseHandler(event, cart) {
     if (event.target.tagName === 'BUTTON') {
       this.goods.forEach(good => {
@@ -81,7 +86,7 @@ class GoodsList {
 
   render() {
     let html = '';
-    this.goods.forEach(good => {
+    this.filteredGoods.forEach(good => {
       let goodItem = new GoodsItem(good.product_name, good.price);
       html += goodItem.render();
     });
@@ -123,7 +128,6 @@ class Cart extends GoodsList {
     return unknownItem.product_name === cartItem.product_name;
   }
 
-  // Решение 2-го задания
   addItemToCart(item) {
     let inCart = false;
     if (this.goods.length) {
@@ -142,7 +146,6 @@ class Cart extends GoodsList {
     }
   }
 
-  // Проверка нажатия на кнопку удаления из корзины
   removeHandler(event) {
     if (event.target.tagName === 'BUTTON') {
       this.goods.forEach(good => {
@@ -153,7 +156,6 @@ class Cart extends GoodsList {
     }
   }
 
-  // Решение 2-го задания
   removeFromCart(item) {
     for (let idx = 0; idx < this.goods.length; idx++) {
       if (this.goods[idx].product_name === item.product_name) {
@@ -166,7 +168,6 @@ class Cart extends GoodsList {
     this.render();
   }
 
-  // Решение 2-го задания // Не уверен до конца, но мне показалось более логичным переписать метод рендер для корзины из-за необходимости создать CartItem и обращения к блоку .cart-list
   render() {
     let html = ``;
     this.goods.forEach(good => {
@@ -180,7 +181,6 @@ class Cart extends GoodsList {
 const catalog = new GoodsList();
 const cart = new Cart();
 
-// Решение 3-го задания. Часть 2
 catalog.fetchGoods()
     .then(() => {
       catalog.render();
@@ -201,3 +201,16 @@ document.querySelector('.cart-list')
     .addEventListener('click', event => {
       cart.removeHandler(event);
     });
+
+const searchInput = document.querySelector('.search-field');
+const searchButton = document.querySelector('.search-button');
+
+searchButton.addEventListener('click', (e) => {
+  const value = searchInput.value;
+  catalog.filterGoods(value);
+});
+
+searchInput.addEventListener('keydown', (e) => {
+  const value = searchInput.value;
+  catalog.filterGoods(value);
+})

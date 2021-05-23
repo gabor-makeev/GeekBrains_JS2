@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.form {
+    padding: calc(50% - 1140px / 2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    &-invalid-field {
+        outline: 1px solid red;
+    }
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
