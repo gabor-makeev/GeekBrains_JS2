@@ -117,7 +117,7 @@ class CartItem extends GoodsItem {
 
 class Cart extends GoodsList {
   pushToCart(item) {
-    this.goods.push({product_name: item.product_name, price: item.price, quantity: 1});
+    this.goods.push({...item, quantity: 1});
   }
 
   increaseQuantity(item) {
