@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
+  <meta charset="UTF-8">
   <title>eShop</title>
   <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <header class="header">
+    <a href="#" class="header-logo">Это интернет-магазин...</a>
+    <div class="search">
+      <input type="text" class="search-field">
+      <button class="search-button" type="button">Go</button>
+    </div>
     <button class="cart-button" type="button">Корзина</button>
   </header>
-  <main>
+  <main class="main">
     <div class="goods-list"></div>
+    <div class="cart-list"></div>
   </main>
+  <footer class="footer"></footer>
 </body>
 </html>
